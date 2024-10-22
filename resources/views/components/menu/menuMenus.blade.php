@@ -86,10 +86,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -99,10 +108,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -112,10 +130,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -125,10 +152,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -139,10 +175,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -152,10 +197,19 @@
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-1.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Tandem Ramen</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
                       <p class="fs-4"><strong>₱299</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -166,21 +220,30 @@
         </div>
     
         <!-- Pagadian Menu (Initially Hidden) -->
-        <div id="pagadianMenu" class="col-lg-12 menu rounded-2" style="display: none;">
+        <div id="pagadianMenu" class="col-lg-12 menu rounded-2 " style="display: none;">
           <div class="menu-header mt-3 rounded-1">
             <h5 class="text-white bg-danger rounded-1 py-3 px-3 fs-3 text-start"><strong>Best Seller Ramen - Pagadian Branch</strong></h5>
           </div>
-          <div class="row rounded-4" style="background-color:white;">
+          <div class="row rounded-4 mb-5" style="background-color:white;">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gx-4 pt-2">
               <!-- Pagadian Menu Items -->
               <div class="col">
                 <div class="card text-center mt-3">
                   <img src="img/joeysPhotos/imageGallery/ig-2.png" class="card-img-top img-fluid" alt="..." style="object-fit: cover; max-height:230px; height: auto;">
                   <div class="card-body">
-                    <h5 class="card-title">Pagadian Special Ramen</h5>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h5 class="card-title text-start">Tandem Ramen</h5>
+                      <p class="fs-4"><strong>₱299</strong></p>
+                    </div>
                     <div class="d-flex justify-content-between align-items-center">
-                      <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      
+                      <div class="d-flex align-items-center">
+                        <h5 class="mx-1">Quantity: </h5>
+                        <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                        <span id="quantity" class="mx-2">0</span> <!-- Initial quantity is 1 -->
+                        <button class="btn btn-outline-secondary px-3" onclick="increaseQuantity()">+</button>
+                      </div>
+                      <button class="btn btn-success button-menu  text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -192,7 +255,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -204,7 +267,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -216,7 +279,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -228,7 +291,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -240,7 +303,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -252,7 +315,7 @@
                     <h5 class="card-title">Pagadian Special Ramen</h5>
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="fs-4"><strong>₱350</strong></p>
-                      <button class="btn btn-danger button-menu px-5 text-white w-md-auto"><strong>+</strong></button>
+                      <button class="btn btn-success button-menu px-5 text-white w-md-auto"><strong>Add To Chart</strong></button>
                     </div>
                   </div>
                 </div>
@@ -281,4 +344,19 @@
       pagadianMenu.style.display = 'block';
     }
   });
+
+//order quantity
+  let quantity = 0;
+
+function increaseQuantity() {
+  quantity++;
+  document.getElementById("quantity").textContent = quantity;
+}
+
+function decreaseQuantity() {
+  if (quantity > 0) {
+    quantity--;
+    document.getElementById("quantity").textContent = quantity;
+  }
+}
 </script>

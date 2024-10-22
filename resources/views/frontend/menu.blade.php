@@ -44,28 +44,7 @@
                         </div>
                             
                     </div>
-                    <div class="col-lg-12">
-                        <div class="container my-4">
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <div class="input-group mt-2">
-                                        <!-- Search input -->
-                                        <input type="text" class="form-control p-2" placeholder="Search" aria-label="Search" aria-describedby="search-button" style="font-size: 1.25rem;">
-                                        <!-- Search button with icon -->
-                                        <button class="btn btn-danger p-3 px-5" type="button" id="search-button">
-                                            <i class="fas fa-search" style="font-size: 1.25rem;"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
-                        
-                        <!-- Include FontAwesome for search icon -->
-                        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-                        
-                        <br>
-                        
-                    </div>
+                    
                 </div>
                 1st
             </div>

@@ -20,6 +20,10 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
             return view('superadmin.dashboard');
         })->name('dashboard');
 
+        Route::get('products', function () {
+            return view('superadmin.products.products');
+        });
+
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

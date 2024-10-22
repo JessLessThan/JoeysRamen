@@ -1,4 +1,4 @@
-<x-guest-layout>
+
     <div class="container d-flex align-items-center justify-content-center vh-50 mt-5">
         <div class="col-md-4 bg-black border border-danger p-4 rounded">
             {{-- Title --}}
@@ -40,4 +40,4 @@
             </form>
         </div>
     </div>
-</x-guest-layout>
+
