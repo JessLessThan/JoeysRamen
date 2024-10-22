@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SuperAdmin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SuperAdmin\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 Route::prefix('super-admin')->name('super-admin.')->group(function () {
 
@@ -20,9 +24,10 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
             return view('superadmin.dashboard');
         })->name('dashboard');
 
-        Route::get('products', function () {
-            return view('superadmin.products.products');
-        });
+       
+
+        Route::resource('products',  ProductsController::class);
+        
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
