@@ -83,6 +83,7 @@ p {
     <div>
         {{$slot}}
     </div>
+    
 
     <!-- Footer -->
 <footer class="text-center text-lg-start  text-muted" style="background-color: #04030F">

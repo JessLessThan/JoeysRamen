@@ -10,18 +10,17 @@ Route::get('/', function () {
 //navigation
 Route::view('/home', 'frontend.index')->name('home');
 
-Route::view('/menu', 'frontend.menu')->name('menu');
+
+
 Route::view('/reservation', 'frontend.reservation')->name('reservation');
 Route::view('/catering', 'frontend.catering')->name('catering');
 Route::view('/location', 'frontend.location')->name('location');
 
 //menuBranches
 Route::group(['prefix' => 'menu'], function(){
-
-
-    Route::get('/ozamiz', [LocationController::class, 'ozamiz'])->name('ozamiz');
+   
+    Route::get('/ozamiz', [LocationController::class, 'ozamiz'])->name('menu');
     Route::get('/pagadian', [LocationController::class, 'pagadian'])->name('pagadian');
-    
 });
 
 

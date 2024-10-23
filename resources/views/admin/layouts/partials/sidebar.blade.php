@@ -2,47 +2,31 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/dashboard') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid text-white fa-gauge-simple"></i></div>
+            <a class="nav-link" href="{{url('admin/dashboard')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid text-white fa-clock-rotate-left"></i></i></div>
-                Orders History
+            <a class="nav-link" href="{{url('admin/orders')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Orders
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4 "><i class="fa-solid fa-book text-white"></i></div>
-                Reservations History
+            <a class="nav-link" href="{{url('admin/reservations')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Reservation
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-table text-white" ></i></i></div>
-                Table Reservations
-            </a>
-
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-users text-white"></i></div>
-                Users Accounts
-            </a>
-
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-flag text-white"></i></div>
-                Reports
-            </a>
-
-            
-
+           
             {{--<div class="sb-sidenav-menu-heading">Interface</div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                Products
+                Layouts
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="superadmin/products/create">Add Products</a>
+                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
                     <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                 </nav>
             </div>
@@ -90,6 +74,6 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        Jeoy's Ramen
+        Start Bootstrap
     </div>
 </nav>

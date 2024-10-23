@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
     public function ozamiz() {
-        return view('frontend.branches.menu.ozamiz'); // Logic to handle Ozamiz
+        return view('frontend.menupartials.menuBranches.ozamizmenu'); // Logic to handle Ozamiz
     }
 
     public function pagadian() {
-        return view('frontend.branches.menu.pagadian'); // Logic to handle Pagadian
+        return view('frontend.menupartials.menuBranches.pagadianbrances'); // Logic to handle Pagadian
     }
 }
 

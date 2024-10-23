@@ -7,17 +7,18 @@
         <div class="container-fluid " style="background-color: black">
             <div class="row">
                 <div class="col-lg-12 p-0">
-                    <div class="overlay-container">
-                      <!-- Background image -->
-                      <img src="img/joeysPhotos/welcome/welcome-bg-pic.png" alt="Background" class="image-fluid">
-                  
-                      <!-- Text overlay -->
-                      <div class="overlay-text">
-                        <h1 >WELCOME</h1>
-                        <p style="color: rgb(223, 222, 222)">JOEY’S RAMEN HOUSE IS A MODERN JAPANESE CUISINE</p>
-                      </div>
+                    <div class="overlay-container" style="position: relative; text-align: center;">
+                        <!-- Background image with slight blur -->
+                        <img src="img/joeysPhotos/welcome/welcome-bg-pic.png" alt="Background" class="image-fluid" style="filter: blur(2px); width: 100%; height: auto;">
+                    
+                        <!-- Text overlay -->
+                        <div class="overlay-text" style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); text-align: center; padding: 60px;">
+                            <h1 style="color: white;">WELCOME</h1>
+                            <p style="color: rgb(223, 222, 222);">JOEY’S RAMEN HOUSE IS A MODERN JAPANESE CUISINE</p>
+                        </div>
                     </div>
-                  </div>
+                </div>
+                
                   
                   <div class="col-lg-12 mt-5">
                     <div id="carouselExample" class="carousel slide border border-white rounded-2 p-5" data-bs-ride="carousel">
@@ -110,7 +111,7 @@
                                     <hr class="text-white">
                                 </div>
                                 <div class="col-4">
-                                    <button class="btn text-white btn-lg btn-outline-danger fs-1 px-5" style="padding-left: ;">Order Now</button>
+                                    <button class="btn text-white btn-lg btn-success fs-1 px-5" style="padding-left: ;">Order Now</button>
                                 </div>
                                 <div class="col-4">
                                     <hr class="text-white">
@@ -167,7 +168,7 @@
                                                 <div class="col-lg-4 text-white mb-3">
                                                     <img src="img/joeysPhotos/locationsPhotos/OzamizCity/homeLocationImage5.png" class="img-fluid rounded-2" alt="" style="max-height: 380px; width: 100%; object-fit: cover;">
                                                     <div class="d-flex justify-content-end mt-3">
-                                                        <button class="btn text-white  btn-outline-danger fs-1 px-5" style="padding-left: ;"><a class="text-decoration-none text-white"  href="https://www.facebook.com/p/JoeyS-RAMEN-HOUSE-100063778308490/" target="_blank">Reserve Now</a></button>
+                                                        <button class="btn text-white  btn-success fs-1 px-5" style="padding-left: ;"><a class="text-decoration-none text-white"  href="https://www.facebook.com/p/JoeyS-RAMEN-HOUSE-100063778308490/" target="_blank">Reserve Now</a></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +203,7 @@
                                                 <div class="col-lg-4 text-white mb-3">
                                                     <img src="img/joeysPhotos/locationsPhotos/PagadianCity/homeLocationImage10.png" class="img-fluid rounded-2" alt="" style="max-height: 350px; width: 100%; object-fit: cover;">
                                                     <div class="d-flex justify-content-end mt-3">
-                                                        <button class="btn text-white  btn-outline-danger fs-1 px-5" style="padding-left: ;"><a class="text-decoration-none text-white"  href="https://www.facebook.com/profile.php?id=61557214920610" target="_blank">Reserve Now</a></button>
+                                                        <button class="btn text-white  btn-success fs-1 px-5" style="padding-left: ;"><a class="text-decoration-none text-white"  href="https://www.facebook.com/profile.php?id=61557214920610" target="_blank">Reserve Now</a></button>
                                                             
                                                             
                                                         </button>
