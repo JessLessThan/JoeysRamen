@@ -53,7 +53,7 @@
 </style>
 <!--1st Navbar -->
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg " style="background-color: #04030F">
+  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #04030F">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,6 +91,49 @@
         </div>
     </div>
   </nav>
+
+  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FCFCFC">
+    <div class="container-fluid">
+        <!-- Logo aligned to the left -->
+        <a class="navbar-brand" href="#">
+            <img src="{{asset('img/logo/logo2.png')}}" alt="" height="50px">
+        </a>
+  
+        <!-- Toggler for smaller screens -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Navigation items aligned to the right -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav gap-3">
+                <li class="nav-item">
+                    <a href="{{route('home')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('menu.ramen')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('reservation')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Reservation</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a href="{{route('location')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Location</a>
+                </li>
+                {{--<li class="nav-item">
+                    <a href="{{route('aboutus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('contactus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">Contact us</a>
+                </li>--}}
+            </ul>
+        </div>
+    </div>
+  </nav>  
+</header>
+  
+
+  
   
   <!-- Modal Structure -->
   @auth
@@ -303,42 +346,5 @@
   
   
   <!--2nd Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FCFCFC">
-    <div class="container-fluid">
-        <!-- Logo aligned to the left -->
-        <a class="navbar-brand" href="#">
-            <img src="{{asset('img/logo/logo2.png')}}" alt="" height="50px">
-        </a>
   
-        <!-- Toggler for smaller screens -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- Navigation items aligned to the right -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item">
-                    <a href="{{route('home')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('menu')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Order</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('reservation')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Reservation</a>
-                </li>
-               
-                <li class="nav-item">
-                    <a href="{{route('location')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Location</a>
-                </li>
-                {{--<li class="nav-item">
-                    <a href="{{route('aboutus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">About us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('contactus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">Contact us</a>
-                </li>--}}
-            </ul>
-        </div>
-    </div>
-  </nav>  
-</header>
+

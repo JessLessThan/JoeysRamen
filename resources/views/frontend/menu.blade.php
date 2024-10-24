@@ -52,7 +52,22 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                @include('frontend.menupartials.menusidebar')
+                <div class="row">
+                    <div class="col-lg-12 mt-3 position-relative">
+                        <form action="" method="GET">
+                            <select id="locationSelect" class="form-control pe-5 me-2 text-dark select-black" onchange="location = this.value;">
+                                <option value="" disabled>Select Location</option>
+                                <option value="{{ url('menu/ozamiz/ramen') }}" {{ request()->is('menu/ozamiz/ramen') ? 'selected' : '' }}>Ozamiz</option>
+                                <option value="{{ url('menu/pagadian/ramen') }}" {{ request()->is('menu/pagadian/ramen', 'menu/pagadian/drinks', 'menu/pagadian/desserts', 'menu/pagadian/sasshimi','menu/pagadian/susshi',) ? 'selected' : '' }}>Pagadian</option>
+                            </select>
+                        </form>
+                        <i class="fa-solid fa-chevron-down position-absolute img-fluid top-50 translate-middle-y mx-2" style="right: 20px;"></i>
+                    </div>
+                    <p class="text-white mt-2 fs-5" style="font-size: 14px;">* Select Pagadian Or Ozamiz Menus</p>
+  
+                    @yield('menusidebar')
+                
+                  </div>  
             </div>
             <div class="col-lg-10">
                 @yield('content') <!-- Change 'menus' to 'content' -->
