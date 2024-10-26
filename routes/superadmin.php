@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\PagadianProductsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SuperAdmin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SuperAdmin\ProfileController;
@@ -27,6 +28,7 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
        
 
         Route::resource('products',  ProductsController::class);
+        Route::resource('pagadianproducts',  PagadianProductsController::class);
         
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

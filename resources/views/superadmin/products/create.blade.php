@@ -14,22 +14,17 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('super-admin.products.store')}}" method="POST">
+                        <form action="{{route('super-admin.products.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label>Product Name</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" value="">
                                 @error('name')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
                             <div class="mb-3">
                                 <label>Description</label>
-                                <textarea name="description"  rows="3" class="form-control"></textarea>
+                                <input name="description" class="form-control"></>
                                 @error('description')<span class="text-danger">{{$message}}</span>@enderror
-                            </div>
-                            <div class="mb-3">
-                                <label>Quantity</label>
-                                <input type="number" name="quantity" class="form-control">
-                                @error('quantity')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
 
                             <div class="mb-3">
@@ -37,6 +32,16 @@
                                 <input type="number" name="price" class="form-control">
                                 @error('price')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
+
+                              
+
+                                <div class="mb-3">
+                                    <label>Upload Images</label>
+                                    <input type="file" id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" class="form-control" />
+                                    @error('photo')<span class="text-danger">{{$message}}</span>@enderror
+                                </div>
+
+                           
 
                             <div class="mb-3">
                                 <label class="me-2">Available</label>

@@ -15,7 +15,8 @@ class   Products extends Model
         'name',
         'price',
         'description',
-        'quantity',
+        'photo',
         'status',
+        
     ];
 }

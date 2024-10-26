@@ -2,33 +2,40 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/dashboard') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid text-white fa-gauge-simple"></i></div>
+            <a class="nav-link fs-5 text-start text-white" href="{{ url('super-admin/dashboard') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid text-white fa-gauge-simple"></i></div>
                 Dashboard
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid text-white fa-clock-rotate-left"></i></i></div>
-                Orders History
+            <a class="nav-link collapsed fs-5 text-start text-white" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fa-solid text-white fs-5 fa-clock-rotate-left"></i></div>
+                Products
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-white fs-5"></i></div>
             </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link text-white" href="{{ url('super-admin/products') }}">Ozamiz</a>
+                    <a class="nav-link text-white" href="{{ url('super-admin/pagadianproducts') }}">Pagadian</a>
+                </nav>
+            </div>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4 "><i class="fa-solid fa-book text-white"></i></div>
+            <a class="nav-link fs-5 text-white" href="{{ url('super-admin/products') }}">
+                <div class="sb-nav-link-icon fs-5 "><i class="fa-solid fa-book text-white"></i></div>
                 Reservations History
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-table text-white" ></i></i></div>
+            <a class="nav-link fs-5 text-start text-white" href="{{ url('super-admin/products') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-table text-white" ></i></i></div>
                 Table Reservations
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-users text-white"></i></div>
+            <a class="nav-link fs-5 text-white" href="{{ url('super-admin/products') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-users text-white"></i></div>
                 Users Accounts
             </a>
 
-            <a class="nav-link fs-4 text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-4"><i class="fa-solid fa-flag text-white"></i></div>
+            <a class="nav-link fs-5 text-white" href="{{ url('super-admin/products') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-flag text-white"></i></div>
                 Reports
             </a>
 

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name'); // For product name
             $table->decimal('price', 8, 2); // For product price (8 digits, 2 decimal places)
             $table->text('description')->nullable(); // For product description, can be nullable
-            $table->integer('quantity'); // For product quantity
             $table->boolean('status')->default(1)->comment('1=available, 0=unavailable'); // For product status (e.g., available/unavailable)
     
             $table->timestamps(); // Created at and updated at

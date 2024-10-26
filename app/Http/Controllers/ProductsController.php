@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -32,25 +34,41 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-          $request->validate([
-           'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'quantity' => 'required|integer|min:0',
-            'status' => 'nullable',
-
-          ]);
-
-          Products::create([
+        // Validate request data
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'required|string|max:255',
+                'price' => 'required|numeric|min:0',
+                
+                'photo' => 'mimes:png,jpeg,jpg|max:2048',
+                'status' => 'nullable',
+            ]);
+    
+        // Prepare data for insertion
+        $productData = [
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
-            'quantity' => $request->quantity,
-            'status' => $request->status == true ? 1:0,
-          ]);
-
-          return redirect('/super-admin/products')->with('status', 'Add Product Doned');
+            'status' => $request->status ? 1 : 0,
+        ];
+    
+        // Handle file upload if a photo is provided
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $file_name = time() . '_' . $file->getClientOriginalName();
+            $filePath = public_path('uploads');
+            $file->move($filePath, $file_name);
+            $productData['photo'] = $file_name;
+        }
+    
+        // Create and save the product
+        Products::create($productData);
+    
+        // Flash success message and redirect
+        Session::flash('success', 'Product added successfully');
+        return redirect('/super-admin/products')->with('status', 'Add Done');
     }
+    
 
     /**
      * Display the specified resource.
@@ -72,26 +90,46 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Products $product)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-             'description' => 'required|string|max:255',
-             'price' => 'required|numeric|min:0',
-             'quantity' => 'required|integer|min:0',
-             'status' => 'nullable',
- 
-           ]);
- 
-           $product->update([
-             'name' => $request->name,
-             'description' => $request->description,
-             'price' => $request->price,
-             'quantity' => $request->quantity,
-             'status' => $request->status == true ? 1:0,
-           ]);
- 
-           return redirect('/super-admin/products')->with('status', 'Product Updated');
+{
+    // Validate incoming request
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'photo' => 'mimes:png,jpeg,jpg|max:2048',
+        'status' => 'nullable',
+    ]);
+
+    // Update product details
+    $productData = [
+        'name' => $request->name,
+        'description' => $request->description,
+        'price' => $request->price,
+        'status' => $request->status ? 1 : 0,
+    ];
+
+    // Handle file upload if a new photo is provided
+    if ($request->hasFile('photo')) {
+        // Delete old photo if it exists
+        if ($product->photo && file_exists(public_path('uploads/' . $product->photo))) {
+            unlink(public_path('uploads/' . $product->photo));
+        }
+
+        // Save new photo
+        $file = $request->file('photo');
+        $file_name = time() . '_' . $file->getClientOriginalName();
+        $filePath = public_path('uploads');
+        $file->move($filePath, $file_name);
+        $productData['photo'] = $file_name;
     }
+
+    // Update product data
+    $product->update($productData);
+
+    // Redirect with success message
+    return redirect('/super-admin/products')->with('status', 'Product Updated');
+}
+
 
     /**
      * Remove the specified resource from storage.
