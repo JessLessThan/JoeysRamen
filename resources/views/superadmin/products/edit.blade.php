@@ -24,7 +24,14 @@
                         </div>
                         <div class="mb-3">
                             <label>Category</label>
-                            <input name="description" rows="3" class="form-control" value="{{ $product->description }}" />
+                            <select name="description" class="form-select">
+                                <option value="" disabled>Select Category</option>
+                                <option value="Ramen" {{ $product->description == 'Ramen' ? 'selected' : '' }}>Ramen</option>
+                                <option value="Sushi" {{ $product->description == 'Sushi' ? 'selected' : '' }}>Sushi</option>
+                                <option value="Sashimi" {{ $product->description == 'Sashimi' ? 'selected' : '' }}>Sashimi</option>
+                                <option value="Desserts" {{ $product->description == 'Desserts' ? 'selected' : '' }}>Desserts</option>
+                                <option value="Drinks" {{ $product->description == 'Drinks' ? 'selected' : '' }}>Drinks</option>
+                            </select>                            
                             @error('description')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                        

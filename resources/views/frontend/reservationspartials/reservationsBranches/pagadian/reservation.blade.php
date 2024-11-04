@@ -1,0 +1,185 @@
+@extends('frontend.reservationspartials.reservationsBranches.mainreservation')
+
+@section('reservationBranches')
+<style>
+    .calendar-day {
+        cursor: pointer; /* Show pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth background color transition */
+    }
+
+    .calendar-day:hover {
+        background-color: #dc3545; /* Bootstrap danger color */
+        color: white; /* White text on hover */
+    }
+
+    .selected-day {
+        background-color: #dc3545; /* Bootstrap danger color */
+        color: white; /* Text color for contrast */
+    }
+
+    .disabled-day {
+        background-color: #f8d7da; /* Light red background */
+        color: #6c757d; /* Gray text */
+        pointer-events: none; /* Disable pointer events */
+    }
+</style>
+
+
+            <div class="col-lg-3 position-relative mt-4 border rounded-2">
+                <!-- Trigger for Calendar Modal -->
+                <button id="dateButton" type="button" class="btn form-control text-dark select-black d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#calendarModal">
+                    <span id="selectedDateText"></span> <!-- Button text -->
+                    <i class="fa-solid fa-calendar-day ms-2"></i> <!-- Calendar icon on the right -->
+                </button>
+            </div>
+            <h2 class="fw-bold">Joeys Ramen <span class="text-danger fw-bold">House</span> - Pagadian</h2>
+
+
+            <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="calendarModalLabel">Select a Date</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center mb-3">
+                                <button id="prevMonth" class="btn btn-secondary btn-sm">‹</button>
+                                <span id="currentMonthYear" class="mx-2"></span>
+                                <button id="nextMonth" class="btn btn-secondary btn-sm">›</button>
+                            </div>
+                            <!-- Simple Calendar Example -->
+                            <table class="table table-bordered text-center" id="calendarTable">
+                                <thead>
+                                    <tr>
+                                        <th>Sun</th>
+                                        <th>Mon</th>
+                                        <th>Tue</th>
+                                        <th>Wed</th>
+                                        <th>Thu</th>
+                                        <th>Fri</th>
+                                        <th>Sat</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calendarBody">
+                                    <!-- Dates will be dynamically generated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3"></div>
+              
+
+<script>
+    let currentDate = new Date();
+    let selectedDay = currentDate.getDate(); // Default to today's date
+    let selectedMonth = currentDate.getMonth();
+    let selectedYear = currentDate.getFullYear();
+
+    // Function to update the displayed date on the button
+    function updateSelectedDateText() {
+        const selectedDateText = `${selectedDay} ${currentDate.toLocaleString('default', { month: 'long' })} ${selectedYear}`;
+        document.getElementById('selectedDateText').textContent = selectedDateText;
+    }
+
+    function updateCalendar() {
+        const month = currentDate.getMonth();
+        const year = currentDate.getFullYear();
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        const startingDay = firstDay.getDay();
+
+        const monthYearDisplay = document.getElementById('currentMonthYear');
+        monthYearDisplay.textContent = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+
+        const calendarBody = document.getElementById('calendarBody');
+        calendarBody.innerHTML = ''; // Clear previous days
+
+        // Create empty cells for days of the week before the first day
+        let row = '<tr>';
+        for (let i = 0; i < startingDay; i++) {
+            row += '<td></td>'; // Empty cells
+        }
+
+        // Fill in the days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const currentCellDate = new Date(year, month, day);
+            const isPastDate = currentCellDate < new Date(); // Check if the date is in the past
+
+            if (isPastDate) {
+                row += `<td class="calendar-day disabled-day">${day}</td>`;
+            } else {
+                row += `<td class="calendar-day" data-day="${day}">${day}</td>`;
+            }
+
+            if ((day + startingDay) % 7 === 0) {
+                row += '</tr><tr>'; // New row after 7 days
+            }
+        }
+        row += '</tr>';
+        calendarBody.innerHTML = row;
+
+        // Highlight the previously selected day if it exists
+        if (selectedDay) {
+            const previousSelectedDay = calendarBody.querySelector(`.calendar-day[data-day="${selectedDay}"]`);
+            if (previousSelectedDay) {
+                previousSelectedDay.classList.add('selected-day');
+            }
+        }
+
+        // Add click event to each calendar day
+        document.querySelectorAll('.calendar-day:not(.disabled-day)').forEach(function(dayElement) {
+            dayElement.addEventListener('click', function() {
+                // Reset previous selected day if any
+                const previouslySelectedDay = calendarBody.querySelector('.selected-day');
+                if (previouslySelectedDay) {
+                    previouslySelectedDay.classList.remove('selected-day');
+                }
+
+                // Set the new selected day
+                selectedDay = this.dataset.day; // Save the selected day number
+                this.classList.add('selected-day'); // Highlight the selected day
+
+                // Update button text with selected date
+                updateSelectedDateText(); // Call the function to update button text
+
+                // Dismiss the modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('calendarModal'));
+                modal.hide();
+            });
+        });
+    }
+
+    // Navigation functions
+    document.getElementById('prevMonth').addEventListener('click', function() {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        updateCalendar();
+    });
+
+    document.getElementById('nextMonth').addEventListener('click', function() {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        updateCalendar();
+    });
+
+    // Show modal event listener
+    document.getElementById('calendarModal').addEventListener('show.bs.modal', function () {
+        updateCalendar(); // Update calendar when modal is opened
+    });
+
+    // Initial button text display
+    updateSelectedDateText(); // Set the initial button text to today's date
+    // Initial calendar render
+    updateCalendar();
+</script>
+
+@endsection
+    

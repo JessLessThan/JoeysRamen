@@ -12,36 +12,36 @@
                 </div>
             </div>
             
-            <div class="col-12 mt-4" style="background-color: #04030F">
+            <div class="col-12 mt-2 mt-lg-4" style="background-color: #04030F">
                 <div class="row">
                     <div class="col-12">
                         <div class="row p-3 ">
-                            <div class="col-6 border rounded-start py-3">
+                            <div class="col-12 col-lg-6 border rounded-start py-3 mb-3 mb-lg-0">
                                 <div class="row">
                                     <div class="col-12">
                                         <img src="img\location\ozamizPics\Photos\llm1.png" class="card-img-top img-fluid rounded-1" alt="..." style="object-fit: cover; max-height:1000px; height: auto;">
                                     </div>
                                     <div class="col-4">
-                                        <img src="img\location\ozamizPics\Photos\llm2.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
+                                        <img src="img\location\ozamizPics\Photos\llm2.png" class="card-img-top img-fluid rounded-1 mt-3 d-none d-lg-flex" alt="..." style="object-fit: cover; max-height:210px; height: 260px;">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <img src="img\location\ozamizPics\Photos\llm3.png" class="card-img-top img-fluid rounded-1 mt-3 " alt="..." style="object-fit: cover; max-height:210px; height: 260px;">
                                     </div>
                                     <div class="col-4">
-                                        <img src="img\location\ozamizPics\Photos\llm3.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="img\location\ozamizPics\Photos\llm4.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
+                                        <img src="img\location\ozamizPics\Photos\llm4.png" class="card-img-top img-fluid rounded-1 mt-3 d-none d-lg-flex" alt="..." style="object-fit: cover; max-height:210px; height: 260px;">
 
                                     </div>
                                     
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 rounded-end" style="background-color: #EDFDFB;">
+                            <div class="col-12 col-lg-6 rounded-end" style="background-color: #EDFDFB;">
                                 <div class="text-start d-flex flex-column align-items-center justify-content-center" style="height: 100%; padding: 20px;"> <!-- Center content vertically -->
-                                    <h3 class="mt-5 fs-1 fw-bold">JOEY’S RAMEN HOUSE IN OZAMIZ CITY</h3>
+                                    <h3 class="mt-5  fw-bold">JOEY’S RAMEN HOUSE IN OZAMIZ CITY</h3>
                                     
                                     <!-- First Information Section -->
-                                    <div class="d-flex justify-content-center align-items-center mt-4 mb-3">
+                                    <div class="d-flex   justify-content-center align-items-center mt-4 mb-3">
                                         <img src="img\location\ozamizPics\icons\llc1.png" alt="Location" style="max-width: 50px; margin-right: 10px;">
-                                        <p class="mb-0 text-start">LEDESMAN CARMEN ANNEX, OZAMIZ CITY <br>
+                                        <p class="mb-0 text-start text-dark"  style="font-size: calc(0.7rem + 0.4vw);">LEDESMAN CARMEN ANNEX, OZAMIZ CITY
                                             MISAMIS OCCIDENTAL, 720</p>
                                     </div>
                                     
@@ -49,14 +49,14 @@
                                     <!-- Second Information Section -->
                                     <div class="d-flex justify-content-center align-items-center mt-4">
                                         <img src="img\location\ozamizPics\icons\llc2.png" alt="Hours" style="max-width: 50px; margin-right: 10px;">
-                                        <p class="mb-0 text-start">OPERATION HOURS: <br>
+                                        <p class="mb-0 text-start text-dark" style="font-size: calc(0.7rem + 0.4vw);">OPERATION HOURS: 
                                             Monday - Sunday 10:00 AM - 8:45 PM</p>
                                     </div>
                                     
                                     <!-- Button Section -->
                                     <div class="container-fluid d-flex align-items-center justify-content-center gap-5 mt-5">
                                         <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark">Map</button>
-                                        <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark">Menu</button>
+                                        <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark" onclick="window.location.href='{{ url('/menu/ozamiz/ramen') }}'">Menu</button>
                                     </div>
                                 </div>
                             </div>
@@ -67,33 +67,33 @@
                     </div>
                     <div class="col-12">
                         <div class="row p-3 ">
-                            <div class="col-6 border rounded-start py-3">
+                            <div class="col-12 col-lg-6 border rounded-start py-3 mb-lg-0 mb-3">
                                 <div class="row">
                                     <div class="col-12">
                                         <img src="img\location\pagadianPics\iip1.png" class="card-img-top img-fluid rounded-1" alt="..." style="object-fit: cover; max-height:1000px; height: auto;">
                                     </div>
                                     <div class="col-4">
-                                        <img src="img\location\pagadianPics\iip2.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
+                                        <img src="img\location\pagadianPics\iip2.png" class="card-img-top img-fluid rounded-1 mt-3 d-none d-lg-flex" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-12 col-lg-4">
                                         <img src="img\location\pagadianPics\iip3.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
                                     </div>
                                     <div class="col-4">
-                                        <img src="img\location\pagadianPics\iip4.png" class="card-img-top img-fluid rounded-1 mt-3" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
+                                        <img src="img\location\pagadianPics\iip4.png" class="card-img-top img-fluid rounded-1 mt-3  d-none d-lg-flex" alt="..." style="object-fit: cover; max-height:260px; height: 260px;">
 
                                     </div>
                                     
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 rounded-end" style="background-color: #EDFDFB;">
+                            <div class="col-12 col-lg-6 rounded-end" style="background-color: #EDFDFB;">
                                 <div class="text-start d-flex flex-column align-items-center justify-content-center" style="height: 100%; padding: 20px;"> <!-- Center content vertically -->
                                     <h3 class="mt-5 fs-1 fw-bold">JOEY’S RAMEN HOUSE IN PAGADIAN CITY</h3>
                                     
                                     <!-- First Information Section -->
                                     <div class="d-flex justify-content-center align-items-center mt-4 mb-3">
                                         <img src="img\location\ozamizPics\icons\llc1.png" alt="Location" style="max-width: 50px; margin-right: 10px;">
-                                        <p class="mb-0 text-start">PUROK ESMERALDA B. SABATE ST. BARANGAY <br>
-                                             SAN JOSE DIST. PAGADIAN CITY <br>
+                                        <p class="mb-0 text-start text-dark"  style="font-size: calc(0.7rem + 0.4vw);">PUROK ESMERALDA B. SABATE ST. BARANGAY 
+                                             SAN JOSE DIST. PAGADIAN CITY
                                             ZAMBOANGA DEL SUR, 7016</p>
                                     </div>
                                     
@@ -101,15 +101,15 @@
                                     <!-- Second Information Section -->
                                     <div class="d-flex justify-content-center align-items-center mt-4">
                                         <img src="img\location\ozamizPics\icons\llc2.png" alt="Hours" style="max-width: 50px; margin-right: 10px;">
-                                        <p class="mb-0 text-start">
-                                            OPERATION HOURS: <br>
+                                        <p class="mb-0 text-start text-dark"  style="font-size: calc(0.7rem + 0.4vw);">
+                                            OPERATION HOURS: 
                                             Monday - Sunday  10:00 AM - 8:45 PM</p>
                                     </div>
                                     
                                     <!-- Button Section -->
                                     <div class="container-fluid d-flex align-items-center justify-content-center gap-5 mt-5">
                                         <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark">Map</button>
-                                        <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark">Menu</button>
+                                        <button type="button"  class="btn fw-bold text-white btn-lg btn-custom border border-dark bg-dark" onclick="window.location.href='{{ url('/menu/pagadian/ramen') }}'">Menu</button>
                                     </div>
                                 </div>
                             </div>

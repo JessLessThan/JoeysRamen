@@ -4,81 +4,134 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pagadianProducts;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
     public function ozamiz() {
-        // Render the main view and pass the additional view as part of it
         return view('frontend.menupartials.menuBranches.ozamizmenu')
             ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar'));
-
-            
     }
-    
 
     public function pagadian() {
         return view('frontend.menupartials.menuBranches.pagadianbrances')
-        ->with('additionalView', view('frontend.menupartials.menuBranches.pagadian')); // Logic to handle Pagadian
+            ->with('additionalView', view('frontend.menupartials.menuBranches.pagadian'));
     }
 
-
-    //ozamiz Category
+    // Ozamiz Category
     public function ramen() {
-        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.ramen')
-        ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar')); // Logic to handle Pagadian
+        $ramenProducts = Products::where('description', 'Ramen')->get();
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.ramen', [
+            'ramenProducts' => $ramenProducts,
+            'additionalView' => view('frontend.menupartials.ozamizmenusidebar')
+        ]);
     }
+
+    public function showRamenProduct($name) {
+        // Find the product by name
+        $product = Products::where('name', $name)->firstOrFail();
+        
+        // Get drinks associated with the product
+        $drinkProducts = Products::where('description', 'Drinks')->get();
+        
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.confirmorder.productinfo', [
+            'product' => $product,
+            'drinkProducts' => $drinkProducts
+        ]);
+
+        
+        
+    }
+
+    public function showPagadianRamenProduct($name) {
+        // Find the product by name
+        $pagadianproduct = pagadianProducts::where('name', $name)->firstOrFail();
+        
+        // Get drinks associated with the product
+        $drinkProducts = pagadianProducts::where('category', 'Drinks')->get();
+        
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.confirmorder.productinfo', [
+            'product' => $pagadianproduct,
+            'drinkProducts' => $drinkProducts
+        ]);
+
+        
+        
+    }
+    
 
     public function susshi() {
-        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.susshi')
-        ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar')); // Logic to handle Pagadian
+        $sushiProducts = Products::where('description', 'Sushi')->get();
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.susshi', [
+            'sushiProducts' => $sushiProducts,
+            'additionalView' => view('frontend.menupartials.ozamizmenusidebar')
+        ]);
     }
 
     public function sasshimi() {
-        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.sasshimi')
-        ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar')); // Logic to handle Pagadian
+        $sashimiProducts = Products::where('description', 'Sashimi')->get();
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.sasshimi', [
+            'sashimiProducts' => $sashimiProducts,
+            'additionalView' => view('frontend.menupartials.ozamizmenusidebar')
+        ]);
     }
 
     public function desserts() {
-        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.desserts')
-        ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar')); // Logic to handle Pagadian
+        $dessertProducts = Products::where('description', 'Desserts')->get();
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.desserts', [
+            'dessertProducts' => $dessertProducts,
+            'additionalView' => view('frontend.menupartials.ozamizmenusidebar')
+        ]);
     }
 
     public function drinks() {
-        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.drinks')
-        ->with('additionalView', view('frontend.menupartials.ozamizmenusidebar')); // Logic to handle Pagadian
+        $drinkProducts = Products::where('description', 'Drinks')->get();
+        return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.drinks', [
+            'drinkProducts' => $drinkProducts,
+            'additionalView' => view('frontend.menupartials.ozamizmenusidebar')
+        ]);
     }
 
-    //pagadian category
-
+    // Pagadian Category
     public function pagadianramen() {
-        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.ramen')
-        ->with('additionalView', view('frontend.menupartials.pagadianmenusidebar')); // Logic to handle Pagadian
+        $ramenProducts = pagadianProducts::where('category', 'Ramen')->get();
+        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.ramen', [
+            'ramenProducts' => $ramenProducts,
+            'additionalView' => view('frontend.menupartials.pagadianmenusidebar')
+        ]);
     }
 
     public function pagadiansusshi() {
-        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.susshi')
-        ->with('additionalView', view('frontend.menupartials.pagadianmenusidebar')); // Logic to handle Pagadian
+        $sushiProducts = pagadianProducts::where('category', 'Sushi')->get();
+        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.susshi', [
+            'sushiProducts' => $sushiProducts,
+            'additionalView' => view('frontend.menupartials.pagadianmenusidebar')
+        ]);
     }
 
     public function pagadiansasshimi() {
-        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.sasshimi')
-        ->with('additionalView', view('frontend.menupartials.pagadianmenusidebar')); // Logic to handle Pagadian
+        $sasshimiProducts = pagadianProducts::where('category', 'Sasshimi')->get();
+        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.sasshimi', [
+            'sasshimiProducts' => $sasshimiProducts,
+            'additionalView' => view('frontend.menupartials.pagadianmenusidebar')
+        ]);
     }
 
     public function pagadiandesserts() {
-        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.desserts')
-        ->with('additionalView', view('frontend.menupartials.pagadianmenusidebar')); // Logic to handle Pagadian
+        $dessertProducts = pagadianProducts::where('category', 'Desserts')->get();
+        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.desserts', [
+            'dessertProducts' => $dessertProducts,
+            'additionalView' => view('frontend.menupartials.pagadianmenusidebar')
+        ]);
     }
 
     public function pagadiandrinks() {
-        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.drinks')
-        ->with('additionalView', view('frontend.menupartials.pagadianmenusidebar')); // Logic to handle Pagadian
+        $drinkProducts = pagadianProducts::where('category', 'Drinks')->get();
+        return view('frontend.menupartials.menuBranches.pagadian.orderpage.category.drinks', [
+            'drinkProducts' => $drinkProducts,
+            'additionalView' => view('frontend.menupartials.pagadianmenusidebar')
+        ]);
     }
-
-
-    
-
-   
 }
-

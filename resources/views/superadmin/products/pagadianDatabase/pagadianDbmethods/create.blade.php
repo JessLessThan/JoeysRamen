@@ -18,18 +18,25 @@
                             @csrf
                             <div class="mb-3">
                                 <label>Product Name</label>
-                                <input type="text" name="name" class="form-control" value="">
+                                <input type="text" name="name" class="form-control" value="" placeholder="Product Name">
                                 @error('name')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
                             <div class="mb-3">
                                 <label>Category</label>
-                                <input name="category" class="form-control"></>
-                                @error('catehory')<span class="text-danger">{{$message}}</span>@enderror
+                                <select name="category" class="form-select">
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Ramen">Ramen</option>
+                                    <option value="Sushi">Sushi</option>
+                                    <option value="Sasshimi">Sashimi</option>
+                                    <option value="Desserts">Desserts</option>
+                                    <option value="Drinks">Drinks</option>
+                                </select>                            
+                                @error('category')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="mb-3">
-                                <label>Price</label>
-                                <input type="number" name="price" class="form-control">
+                                <label>Price </label>
+                                <input type="number" name="price" class="form-control" placeholder="Product Price">
                                 @error('price')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
 

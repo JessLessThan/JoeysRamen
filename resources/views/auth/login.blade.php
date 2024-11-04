@@ -6,12 +6,19 @@
     <x-auth-session-status class="" :status="session('status')" />
     <section class="d-flex align-items-center justify-content-center" style="min-height: 65vh;">
         <!-- Jumbotron -->
-        <div class="px-4 py-5 px-md-5 text-center text-lg-start">
+
           <div class="container">
             <div class="row gx-lg-5 align-items-center justify-content-center">
               <div class="col-lg-6 mb-5 mb-lg-0">
-                <div class="card border-1 my-3">
-                  <div class="card-body py-5 px-md-5">
+                <div class="card border-1 my-3 ">
+                  <div class="card-body py-4 py-lg-5 px-md-5">
+                    <div class="text-center">
+                      <h1 class=" display-3 fw-bold ls-tight d-inline d-lg-none" style="font-size: calc(1.8rem + 0.3vw)">
+                        Login
+                      
+                      </h1>
+                    </div>
+                   
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                     
@@ -69,7 +76,7 @@
                 </div>
               </div>
     
-              <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+              <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start d-none d-lg-block">
                 <h1 class="my-2 display-3 fw-bold ls-tight">
                   JOEY'S <br> RAMEN HOUSE <br />
                   <span class="" style="color: #cd0c18">JAPANESE CUISINE</span>
@@ -82,7 +89,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
         <!-- Jumbotron -->
     </section>
     

@@ -2,52 +2,113 @@
 
 @section('menusidebar')
 
+
+<div class="d-flex justify-content-between align-items-center d-lg-none py-2" style="background-color: #ECFFFD;">
+    <div class="col-lg-12  position-relative">
+        <form action="" method="GET">
+            <select id="locationSelect" class="form-control pe-5 me-2 text-dark select-black" onchange="location = this.value;">
+                <option value="" disabled>Select Location</option>
+                <option value="{{ url('menu/ozamiz/ramen') }}" {{ request()->is('menu/ozamiz/ramen') ? 'selected' : '' }} >Ozamiz</option>
+                <option value="{{ url('menu/pagadian/ramen') }}" {{ request()->is('menu/pagadian/ramen', 'menu/pagadian/drinks', 'menu/pagadian/desserts', 'menu/pagadian/sasshimi','menu/pagadian/susshi',) ? 'selected' : '' }}>Pagadian</option>
+            </select>
+        </form>
+        <i class="fa-solid fa-chevron-down position-absolute img-fluid top-50 translate-middle-y mx-2" style="right: 20px;"></i>
+    </div>
+
+    <div class="d-flex  align-items-center mt-2 justify-content-between">
+        <a href="{{ route('menu.pagadian.ramen') }}" class="text-decoration-none text-dark w-100 mb-2">
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="ms-2 mb-0 text-dark" style="font-size: calc(0.6rem + 1vw); {{ Route::is('menu.pagadian.ramen') ? 'border-bottom: 2px solid green;' : '' }}">Ramen</p>
+            </div>
+        </a>
+    
+        <a href="{{ route('menu.pagadian.susshi') }}" class="text-decoration-none text-dark w-100 mb-2">
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="ms-2 mb-0 text-dark" style="font-size: calc(0.6rem + 1vw); {{ Route::is('menu.pagadian.susshi') ? 'border-bottom: 2px solid green;' : '' }}">Susshi</p>
+            </div>
+        </a>
+    
+        <a href="{{ route('menu.pagadian.sasshimi') }}" class="text-decoration-none text-dark w-100 mb-2">
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="ms-2 mb-0 text-dark" style="font-size: calc(0.6rem + 1vw); {{ Route::is('menu.pagadian.sasshimi') ? 'border-bottom: 2px solid green;' : '' }}">Sasshimi</p>
+            </div>
+        </a>
+    
+        <a href="{{ route('menu.pagadian.desserts') }}" class="text-decoration-none text-dark w-100 mb-2">
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="ms-2 mb-0 text-dark" style="font-size: calc(0.6rem + 1vw); {{ Route::is('menu.pagadian.desserts') ? 'border-bottom: 2px solid green;' : '' }}">Desserts</p>
+            </div>
+        </a>
+    
+        <a href="{{ route('menu.pagadian.drinks') }}" class="text-decoration-none text-dark w-100 mb-2">
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="ms-2 mb-0 text-dark" style="font-size: calc(0.6rem + 1vw); {{ Route::is('menu.pagadian.drinks') ? 'border-bottom: 2px solid green;' : '' }}">Drinks</p>
+            </div>
+        </a>
+    </div>
+    
+    
+</div>
+
+<div class="d-none d-lg-inline">
+    <div class="col-lg-12 mt-3 position-relative">
+        <form action="" method="GET">
+            <select id="locationSelect" class="form-control pe-5 me-2 text-dark select-black" onchange="location = this.value;">
+                <option value="" disabled>Select Location</option>
+                <option value="{{ url('menu/ozamiz/ramen') }}" {{ request()->is('menu/ozamiz/ramen') ? 'selected' : '' }}>Ozamiz</option>
+                <option value="{{ url('menu/pagadian/ramen') }}" {{ request()->is('menu/pagadian/ramen', 'menu/pagadian/drinks', 'menu/pagadian/desserts', 'menu/pagadian/sasshimi','menu/pagadian/susshi',) ? 'selected' : '' }}>Pagadian</option>
+            </select>
+        </form>
+        <i class="fa-solid fa-chevron-down position-absolute img-fluid top-50 translate-middle-y mx-2" style="right: 20px;"></i>
+    </div>
+    <p class="text-white mt-2 fs-5 d-none d-lg-flex" style="font-size: 14px;">* Select Pagadian Or Ozamiz Menus</p>
+    
     <div class="col-lg-12">
         <ul class="list-group list-group-flush rounded mt-2 pb-2">
             <h5 class="bg-danger text-white py-2">Food Category</h5>
-            <li class="list-group-item">
-                <a href="{{route('menu.pagadian.ramen')}}" class="text-decoration-none text-dark">
+            <li class="list-group-item {{ Request::routeIs('menu.pagadian.ramen') ? 'bg-danger text-white' : '' }}">
+                <a href="{{ route('menu.pagadian.ramen') }}" class="text-decoration-none {{ Request::routeIs('menu.pagadian.ramen') ? 'text-white' : 'text-dark' }}">
                     <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-bowl-rice" style="font-size: 24px;"></i>
-                        <p class="ms-2 mb-0 text-dark">Ramen</p>
+                        <i class="fa-solid fa-bowl-rice" style="font-size: 24px; {{ Request::routeIs('menu.pagadian.ramen') ? 'color: white;' : 'color: black;' }}"></i>
+                        <p class="ms-2 mb-0 {{ Request::routeIs('menu.pagadian.ramen') ? 'text-white' : 'text-dark' }}">Ramen</p>
                     </div>
                 </a>
             </li>
-            <li class="list-group-item">
-                <a href="{{route('menu.pagadian.susshi')}}" class="text-decoration-none text-dark">
+            <li class="list-group-item {{ Request::routeIs('menu.pagadian.susshi') ? 'bg-danger text-white' : '' }}">
+                <a href="{{ route('menu.pagadian.susshi') }}" class="text-decoration-none {{ Request::routeIs('menu.pagadian.susshi') ? 'text-white' : 'text-dark' }}">
                     <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-fish" style="font-size: 24px;"></i>
-                        <p class="ms-2 mb-0 text-dark">Susshi</p>
-                    </div>
-                </a>                      
-            </li>
-            <li class="list-group-item">
-                <a href="{{route('menu.pagadian.sasshimi')}}" class="text-decoration-none text-dark">
-                    <div class="d-flex align-items-center">
-                      <i class="fa-solid fa-bacon" style="font-size: 24px;"></i>
-                        <p class="ms-2 mb-0 text-dark">Sasshimi</p>
+                        <i class="fa-solid fa-fish" style="font-size: 24px; {{ Request::routeIs('menu.pagadian.susshi') ? 'color: white;' : 'color: black;' }}"></i>
+                        <p class="ms-2 mb-0 {{ Request::routeIs('menu.pagadian.susshi') ? 'text-white' : 'text-dark' }}">Susshi</p>
                     </div>
                 </a>
             </li>
-            <li class="list-group-item">
-                <a href="{{route('menu.pagadian.desserts')}}" class="text-decoration-none text-dark">
+            <li class="list-group-item {{ Request::routeIs('menu.pagadian.sasshimi') ? 'bg-danger text-white' : '' }}">
+                <a href="{{ route('menu.pagadian.sasshimi') }}" class="text-decoration-none {{ Request::routeIs('menu.pagadian.sasshimi') ? 'text-white' : 'text-dark' }}">
                     <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-ice-cream" style="font-size: 24px;"></i>
-                        <p class="ms-2 mb-0 text-dark">Desserts</p>
+                        <i class="fa-solid fa-bacon" style="font-size: 24px; {{ Request::routeIs('menu.pagadian.sasshimi') ? 'color: white;' : 'color: black;' }}"></i>
+                        <p class="ms-2 mb-0 {{ Request::routeIs('menu.pagadian.sasshimi') ? 'text-white' : 'text-dark' }}">Sasshimi</p>
                     </div>
-                </a>                
+                </a>
             </li>
-            <li class="list-group-item">
-                <a href="{{route('menu.pagadian.drinks')}}" class="text-decoration-none text-dark">
+            <li class="list-group-item {{ Request::routeIs('menu.pagadian.desserts') ? 'bg-danger text-white' : '' }}">
+                <a href="{{ route('menu.pagadian.desserts') }}" class="text-decoration-none {{ Request::routeIs('menu.pagadian.desserts') ? 'text-white' : 'text-dark' }}">
                     <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-martini-glass" style="font-size: 24px;"></i>
-                        <p class="ms-2 mb-0 text-dark">Drinks</p>
+                        <i class="fa-solid fa-ice-cream" style="font-size: 24px; {{ Request::routeIs('menu.pagadian.desserts') ? 'color: white;' : 'color: black;' }}"></i>
+                        <p class="ms-2 mb-0 {{ Request::routeIs('menu.pagadian.desserts') ? 'text-white' : 'text-dark' }}">Desserts</p>
                     </div>
-                </a>                    
+                </a>
+            </li>
+            <li class="list-group-item {{ Request::routeIs('menu.pagadian.drinks') ? 'bg-danger text-white' : '' }}">
+                <a href="{{ route('menu.pagadian.drinks') }}" class="text-decoration-none {{ Request::routeIs('menu.pagadian.drinks') ? 'text-white' : 'text-dark' }}">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-martini-glass" style="font-size: 24px; {{ Request::routeIs('menu.pagadian.drinks') ? 'color: white;' : 'color: black;' }}"></i>
+                        <p class="ms-2 mb-0 {{ Request::routeIs('menu.pagadian.drinks') ? 'text-white' : 'text-dark' }}">Drinks</p>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
-  
-  
+</div>
+
 @endsection
 

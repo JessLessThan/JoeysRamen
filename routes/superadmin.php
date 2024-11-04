@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\OzamizTabledataController;
 use App\Http\Controllers\PagadianProductsController;
+use App\Http\Controllers\PagadianTabledataController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SuperAdmin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SuperAdmin\ProfileController;
+use App\Models\PagadianTabledata;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,10 +29,13 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
         })->name('dashboard');
 
        
-
+        //products
         Route::resource('products',  ProductsController::class);
         Route::resource('pagadianproducts',  PagadianProductsController::class);
-        
+
+        //table datas
+        Route::resource('ozamiztabledatas',  OzamizTabledataController::class);
+        Route::resource('pagadiantabledatas',  PagadianTabledataController::class);
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

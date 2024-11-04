@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,14 +9,21 @@ use Illuminate\Support\Facades\Session;
 class ProductsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource with optional category filter.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Products::paginate(10);
+        // Check for category filter in request
+        $category = $request->input('category');
 
-        return view('superadmin.products.products',[
-            'products' => $products
+        // Filter products by category if specified, otherwise return all
+        $products = Products::when($category, function ($query, $category) {
+            return $query->where('description', $category);
+        })->paginate(10);
+
+        return view('superadmin.products.products', [
+            'products' => $products,
+            'selectedCategory' => $category
         ]);
     }
 
@@ -34,25 +40,21 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate request data
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'required|string|max:255',
-                'price' => 'required|numeric|min:0',
-                
-                'photo' => 'mimes:png,jpeg,jpg|max:2048',
-                'status' => 'nullable',
-            ]);
-    
-        // Prepare data for insertion
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'photo' => 'mimes:png,jpeg,jpg|max:2048',
+            'status' => 'nullable',
+        ]);
+
         $productData = [
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
             'status' => $request->status ? 1 : 0,
         ];
-    
-        // Handle file upload if a photo is provided
+
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $file_name = time() . '_' . $file->getClientOriginalName();
@@ -60,22 +62,10 @@ class ProductsController extends Controller
             $file->move($filePath, $file_name);
             $productData['photo'] = $file_name;
         }
-    
-        // Create and save the product
-        Products::create($productData);
-    
-        // Flash success message and redirect
-        Session::flash('success', 'Product added successfully');
-        return redirect('/super-admin/products')->with('status', 'Add Done');
-    }
-    
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Products $products)
-    {
-        return view('superadmin.products.show');
+        Products::create($productData);
+
+        return redirect('/super-admin/products')->with('status', 'Product added successfully');
     }
 
     /**
@@ -90,52 +80,48 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Products $product)
-{
-    // Validate incoming request
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'required|string|max:255',
-        'price' => 'required|numeric|min:0',
-        'photo' => 'mimes:png,jpeg,jpg|max:2048',
-        'status' => 'nullable',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'photo' => 'mimes:png,jpeg,jpg|max:2048',
+            'status' => 'nullable',
+        ]);
 
-    // Update product details
-    $productData = [
-        'name' => $request->name,
-        'description' => $request->description,
-        'price' => $request->price,
-        'status' => $request->status ? 1 : 0,
-    ];
+        $productData = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'status' => $request->status ? 1 : 0,
+        ];
 
-    // Handle file upload if a new photo is provided
-    if ($request->hasFile('photo')) {
-        // Delete old photo if it exists
-        if ($product->photo && file_exists(public_path('uploads/' . $product->photo))) {
-            unlink(public_path('uploads/' . $product->photo));
+        if ($request->hasFile('photo')) {
+            if ($product->photo && file_exists(public_path('uploads/' . $product->photo))) {
+                unlink(public_path('uploads/' . $product->photo));
+            }
+
+            $file = $request->file('photo');
+            $file_name = time() . '_' . $file->getClientOriginalName();
+            $filePath = public_path('uploads');
+            $file->move($filePath, $file_name);
+            $productData['photo'] = $file_name;
         }
 
-        // Save new photo
-        $file = $request->file('photo');
-        $file_name = time() . '_' . $file->getClientOriginalName();
-        $filePath = public_path('uploads');
-        $file->move($filePath, $file_name);
-        $productData['photo'] = $file_name;
+        $product->update($productData);
+
+        return redirect('/super-admin/products')->with('status', 'Product Updated');
     }
-
-    // Update product data
-    $product->update($productData);
-
-    // Redirect with success message
-    return redirect('/super-admin/products')->with('status', 'Product Updated');
-}
-
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Products $product)
     {
+        if ($product->photo && file_exists(public_path('uploads/' . $product->photo))) {
+            unlink(public_path('uploads/' . $product->photo));
+        }
+
         $product->delete();
         return redirect('/super-admin/products')->with('status', 'Product Deleted');
     }

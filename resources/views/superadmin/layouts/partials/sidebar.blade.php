@@ -21,13 +21,20 @@
 
             <a class="nav-link fs-5 text-white" href="{{ url('super-admin/products') }}">
                 <div class="sb-nav-link-icon fs-5 "><i class="fa-solid fa-book text-white"></i></div>
-                Reservations History
+                Order History
             </a>
 
-            <a class="nav-link fs-5 text-start text-white" href="{{ url('super-admin/products') }}">
-                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-table text-white" ></i></i></div>
-                Table Reservations
+            <a class="nav-link collapsed fs-5 text-start text-white" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayoutss" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fa-solid text-white fs-5 fa-table"></i></div>
+                Table Datas
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-white fs-5"></i></div>
             </a>
+            <div class="collapse" id="collapseLayoutss" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link text-white" href="{{ url('super-admin/ozamiztabledatas') }}">Ozamiz</a>
+                    <a class="nav-link text-white" href="{{ url('super-admin/pagadiantabledatas') }}">Pagadian</a>
+                </nav>
+            </div>
 
             <a class="nav-link fs-5 text-white" href="{{ url('super-admin/products') }}">
                 <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-users text-white"></i></div>

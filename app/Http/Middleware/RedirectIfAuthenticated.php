@@ -36,7 +36,7 @@ class RedirectIfAuthenticated
 
                 # Normal User
                 else {
-                    return redirect()->route('dashboard');
+                    return redirect()->route('home');
                 }
             }
         }

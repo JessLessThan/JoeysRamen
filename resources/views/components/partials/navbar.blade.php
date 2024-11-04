@@ -6,8 +6,9 @@
   position: relative;
   color: white;
   text-decoration: none;
-  transition: color 0.4s ease-in-out;
-  padding: 10px 20px;
+  transition: color 0.2s ease-in-out;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 /* Hide the lines initially */
@@ -18,7 +19,7 @@
   height: 2px;
   background-color: black;
   left: 50%;
-  transition: width 0.4s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
 /* Top line */
@@ -50,88 +51,89 @@
     gap: 1rem;
   }
 }   
+
 </style>
 <!--1st Navbar -->
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #04030F">
+  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #04030F;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  @auth
-                  <i class="fa-regular fa-bell text-white fs-4"></i>
-                  <i class="fa-solid text-white fs-4 mx-2 fa-cart-shopping"></i>
-                  @endauth
-                </li>
-            </ul>
-            <form class="" role="search">
-                <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                    @if (Route::has('login'))
-                        <nav class="-mx-3 flex flex-1 justify-end">
-                            @auth
-                            <!-- Trigger modal with profile -->
-                            <a href="#" class="text-white text-decoration-none fs-5 mx-4 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                <span class="mx-3">{{Auth::user()->name}}</span>
-                                <img src="{{asset('img\aboutus\ourStory\pics\mA4.png')}}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
-                            </a>
-                            @else
-                                <a href="{{ route('login') }}" class="text-white text-decoration-none fs-5">Log in</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="text-white text-decoration-none mx-3 fs-5">Register</a>
-                                @endif
-                            @endauth
-                        </nav>
-                    @endif
-                </header>
-            </form>
+        <!-- Left-aligned logo or brand -->
+        <div>
+          @auth
+          <i class="fa-regular fa-bell text-white fs-sm-1 fs-4"></i>
+          <i class="fa-solid fa-cart-shopping text-white fs-sm-1 fs-4 mx-3"></i>
+          @endauth  
         </div>
-    </div>
-  </nav>
+        
+       
 
-  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FCFCFC">
-    <div class="container-fluid">
-        <!-- Logo aligned to the left -->
-        <a class="navbar-brand" href="#">
-            <img src="{{asset('img/logo/logo2.png')}}" alt="" height="50px">
-        </a>
-  
-        <!-- Toggler for smaller screens -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- Navigation items aligned to the right -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item">
-                    <a href="{{route('home')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('menu.ramen')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Order</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('reservation')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Reservation</a>
-                </li>
-               
-                <li class="nav-item">
-                    <a href="{{route('location')}}" class="btn btn-2 text-dark fs-5 fw-bold nav-link-custom">Location</a>
-                </li>
-                {{--<li class="nav-item">
-                    <a href="{{route('aboutus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">About us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('contactus')}}" class="btn btn-2 text-white fs-5 fw-bold nav-link-custom">Contact us</a>
-                </li>--}}
-            </ul>
-        </div>
+        <!-- Right-aligned form and profile/login links -->
+        <div class="d-flex justify-content-start align-items-center">
+          @if (Route::has('login'))
+              <nav class="d-flex align-items-center">
+                  @auth
+                  <!-- Profile with modal trigger -->
+                  <a href="#" class="text-white text-decoration-none fs-5 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#profileModal">
+                      <span class="mx-3">{{ Auth::user()->name }}</span>
+                      <img src="{{ asset('img/aboutus/ourStory/pics/mA4.png') }}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
+                  </a>
+                  @else
+                  <a href="{{ route('login') }}" class="text-white text-decoration-none me-3" style="font-size: calc(1rem + 0.3vw);">Log in</a>
+                  <!-- Vertical line divider -->
+                  <span class="text-white me-3">|</span>
+                  <a href="{{ route('register') }}" class="text-white text-decoration-none" style="font-size: calc(1rem + 0.3vw);">Register</a>
+                  @endauth
+              </nav>
+          @endif
+      </div>
+      
     </div>
-  </nav>  
+</nav>
+
+
+<nav class="navbar navbar-expand-lg sticky-top " style="background-color: #FCFCFC; border-bottom: black 1px solid;">
+  <div class="container-fluid">
+      <!-- Logo aligned to the left -->
+      <a class="navbar-brand d-none d-lg-flex" href="#">
+          <img src="{{ asset('img/logo/logo2.png') }}" alt="" height="50px">
+      </a>
+
+      <!-- Navigation items -->
+      <div class="d-flex justify-content-center justify-content-lg-end align-items-center flex-wrap gap-3 w-100">
+          <a href="{{ route('home') }}" 
+             class="text-decoration-none text-dark nav-link-custom mx-lg-2 mx-1 fw-bold {{ Request::routeIs('home') ? 'active' : '' }}" 
+             style="font-size: calc(1rem + 0.3vw);">
+              Home
+          </a>
+          <a href="{{ route('menu.ramen') }}" 
+             class="text-decoration-none text-dark nav-link-custom mx-lg-2 mx-1 fw-bold {{ Request::routeIs('menu.ramen') || Request::routeIs('menu.susshi') || Request::routeIs('menu.sasshimi') || Request::routeIs('menu.desserts') || Request::routeIs('menu.drinks') || Request::routeIs('menu.pagadian.ramen') || Request::routeIs('menu.pagadian.susshi') || Request::routeIs('menu.pagadian.sasshimi') || Request::routeIs('menu.pagadian.desserts') || Request::routeIs('menu.pagadian.drinks') ? 'active' : '' }}" 
+             style="font-size: calc(1rem + 0.3vw);">
+              Order
+          </a>
+          <a href="{{ route('reservation') }}" 
+             class="text-decoration-none text-dark nav-link-custom fw-bold mx-1 mx-lg-2 {{ Request::routeIs('reservation') ? 'active' : '' }}" 
+             style="font-size: calc(1rem + 0.3vw);">
+              Reservation
+          </a>
+          <a href="{{ route('location') }}" 
+             class="text-decoration-none text-dark nav-link-custom fw-bold mx-1 mx-lg-2 {{ Request::routeIs('location') ? 'active' : '' }}" 
+             style="font-size: calc(1rem + 0.3vw);">
+              Location
+          </a>
+      </div>
+  </div>
+</nav>
+
+
+
+
 </header>
-  
+
+
+
+
+
+
 
   
   
@@ -163,10 +165,6 @@
             <a href="#" class="mx-2 text-decoration-none text-black text-center" onclick="showReservationContent()">
               <i class="fas fa-calendar-check" style="font-size: 1.5rem;"></i><br>
               Reservation
-            </a>
-            <a href="#" class="mx-2 text-decoration-none text-black text-center">
-              <i class="fas fa-concierge-bell" style="font-size: 1.5rem;"></i><br>
-              Catering Service
             </a>
           </div>
   

@@ -6,10 +6,10 @@
 
     <section class=""  style="min-height: 90vh;">
         <!-- Jumbotron -->
-        <div class="px-4 py-5 px-md-5 text-center text-lg-start">
-          <div class="container">
+        
+          <div class="container py-4 py-lg-5">
             <div class="row gx-lg-5 align-items-center">
-              <div class="col-lg-6 mb-5 mb-lg-0">
+              <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block">
                 <h1 class="my-2  display-3 fw-bold ls-tight">
                   JOEY'S <br> RAMEN HOUSE <br />
                   <span class="" style="color: #cd0c18">JAPANESE CUISINE</span>
@@ -24,6 +24,12 @@
               <div class="col-lg-6 mb-5 mb-lg-0">
                 <div class="card border-1 my-3"  >
                   <div class="card-body py-5 px-md-5">
+                    <div class="text-center">
+                      <h1 class=" display-3 fw-bold ls-tight d-inline d-lg-none" style="font-size: calc(1.8rem + 0.3vw)">
+                        Register
+                      
+                      </h1>
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                     
@@ -81,7 +87,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
         <!-- Jumbotron -->
       </section>
       <!-- Section: Design Block -->

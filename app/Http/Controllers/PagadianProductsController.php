@@ -6,18 +6,24 @@ use App\Models\pagadianProducts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-
 class PagadianProductsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource with optional category filter.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pagadianproduct = pagadianProducts::paginate(10);
+        // Check for category filter in request
+        $category = $request->input('category');
 
-        return view('superadmin.products.pagadiandatabase.pagadianproducts',[
-            'pagadianproducts' => $pagadianproduct
+        // Filter products by category if specified, otherwise return all
+        $pagadianproducts = pagadianProducts::when($category, function ($query, $category) {
+            return $query->where('category', $category);
+        })->paginate(10);
+
+        return view('superadmin.products.pagadiandatabase.pagadianproducts', [
+            'pagadianproducts' => $pagadianproducts,
+            'selectedCategory' => $category
         ]);
     }
 
@@ -34,24 +40,21 @@ class PagadianProductsController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate request data
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'category' => 'required|string|max:255',
-                'price' => 'required|numeric|min:0',
-                'photo' => 'mimes:png,jpeg,jpg|max:2048',
-                'status' => 'nullable',
-            ]);
-    
-        // Prepare data for insertion
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'photo' => 'mimes:png,jpeg,jpg|max:2048',
+            'status' => 'nullable',
+        ]);
+
         $pagadianproductData = [
             'name' => $request->name,
             'category' => $request->category,
             'price' => $request->price,
             'status' => $request->status ? 1 : 0,
         ];
-    
-        // Handle file upload if a photo is provided
+
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $file_name = time() . '_' . $file->getClientOriginalName();
@@ -59,75 +62,55 @@ class PagadianProductsController extends Controller
             $file->move($filePath, $file_name);
             $pagadianproductData['photo'] = $file_name;
         }
-    
-        // Create and save the product
-        pagadianProducts::create($pagadianproductData);
-    
-        // Flash success message and redirect
-        Session::flash('success', 'Product added successfully');
-        return redirect('/super-admin/pagadianproducts')->with('status', 'Add Done');
-    }
-    
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(pagadianProducts $pagadianproduct)
-    {
-        //
+        pagadianProducts::create($pagadianproductData);
+
+        return redirect('/super-admin/pagadianproducts')->with('status', 'Product added successfully');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(pagadianProducts $pagadianproduct)
-{
-    return view('superadmin.products.pagadiandatabase.pagadiandbmethods.edit', compact('pagadianproduct'));
-}
-
+    {
+        return view('superadmin.products.pagadiandatabase.pagadiandbmethods.edit', compact('pagadianproduct'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, pagadianProducts $pagadianproduct)
     {
-        // Validate incoming request
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'category' => 'required|string|max:255',
-        'price' => 'required|numeric|min:0',
-        'photo' => 'mimes:png,jpeg,jpg|max:2048',
-        'status' => 'nullable',
-    ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'photo' => 'mimes:png,jpeg,jpg|max:2048',
+            'status' => 'nullable',
+        ]);
 
-    // Update product details
-    $pagadianproductData = [
-        'name' => $request->name,
-        'category' => $request->category,
-        'price' => $request->price,
-        'status' => $request->status ? 1 : 0,
-    ];
+        $pagadianproductData = [
+            'name' => $request->name,
+            'category' => $request->category,
+            'price' => $request->price,
+            'status' => $request->status ? 1 : 0,
+        ];
 
-    // Handle file upload if a new photo is provided
-    if ($request->hasFile('photo')) {
-        // Delete old photo if it exists
-        if ($pagadianproduct->photo && file_exists(public_path('uploads/' . $pagadianproduct->photo))) {
-            unlink(public_path('uploads/' . $pagadianproduct->photo));
+        if ($request->hasFile('photo')) {
+            if ($pagadianproduct->photo && file_exists(public_path('uploads/' . $pagadianproduct->photo))) {
+                unlink(public_path('uploads/' . $pagadianproduct->photo));
+            }
+
+            $file = $request->file('photo');
+            $file_name = time() . '_' . $file->getClientOriginalName();
+            $filePath = public_path('uploads');
+            $file->move($filePath, $file_name);
+            $pagadianproductData['photo'] = $file_name;
         }
 
-        // Save new photo
-        $file = $request->file('photo');
-        $file_name = time() . '_' . $file->getClientOriginalName();
-        $filePath = public_path('uploads');
-        $file->move($filePath, $file_name);
-        $pagadianproductData['photo'] = $file_name;
-    }
+        $pagadianproduct->update($pagadianproductData);
 
-    // Update product data
-    $pagadianproduct->update($pagadianproductData);
-
-    // Redirect with success message
-    return redirect('/super-admin/pagadianproducts')->with('status', 'Product Updated');
+        return redirect('/super-admin/pagadianproducts')->with('status', 'Product Updated');
     }
 
     /**
@@ -135,6 +118,10 @@ class PagadianProductsController extends Controller
      */
     public function destroy(pagadianProducts $pagadianproduct)
     {
+        if ($pagadianproduct->photo && file_exists(public_path('uploads/' . $pagadianproduct->photo))) {
+            unlink(public_path('uploads/' . $pagadianproduct->photo));
+        }
+
         $pagadianproduct->delete();
         return redirect('/super-admin/pagadianproducts')->with('status', 'Product Deleted');
     }

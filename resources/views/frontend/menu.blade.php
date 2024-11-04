@@ -6,7 +6,7 @@
     </x-slot> 
     <div class="text-center container-fluid">
         <div class="row">
-            <div class="col-lg-12" style="background-color: #04030F">
+            <div class="col-lg-12 d-none d-lg-inline" style="background-color: #04030F">
                 <div class="row">
                     <div class="col">
                         <div class="d-flex flex-wrap align-items-center justify-content-center gap-5 mt-4">
@@ -53,18 +53,7 @@
             </div>
             <div class="col-lg-2">
                 <div class="row">
-                    <div class="col-lg-12 mt-3 position-relative">
-                        <form action="" method="GET">
-                            <select id="locationSelect" class="form-control pe-5 me-2 text-dark select-black" onchange="location = this.value;">
-                                <option value="" disabled>Select Location</option>
-                                <option value="{{ url('menu/ozamiz/ramen') }}" {{ request()->is('menu/ozamiz/ramen') ? 'selected' : '' }}>Ozamiz</option>
-                                <option value="{{ url('menu/pagadian/ramen') }}" {{ request()->is('menu/pagadian/ramen', 'menu/pagadian/drinks', 'menu/pagadian/desserts', 'menu/pagadian/sasshimi','menu/pagadian/susshi',) ? 'selected' : '' }}>Pagadian</option>
-                            </select>
-                        </form>
-                        <i class="fa-solid fa-chevron-down position-absolute img-fluid top-50 translate-middle-y mx-2" style="right: 20px;"></i>
-                    </div>
-                    <p class="text-white mt-2 fs-5" style="font-size: 14px;">* Select Pagadian Or Ozamiz Menus</p>
-  
+                   
                     @yield('menusidebar')
                 
                   </div>  
