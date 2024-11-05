@@ -1,13 +1,13 @@
 @extends('superadmin.layouts.superadmin')
 
-@section('title', 'Product Page')
+@section('title', 'DataTable - Ozamiz')
 
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
            
-            <h1 class="mb-4">Table Data</h1>
+            <h1 class="mb-4">Ozamiz Table Data</h1>
             @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}

@@ -16,24 +16,24 @@
         
         @include('superadmin.layouts.partials.navbar');
 
-        <div id="layoutSidenav">
+            <div id="layoutSidenav">
 
-            <div id="layoutSidenav_nav">
-                @include('superadmin.layouts.partials.sidebar');
+                <div id="layoutSidenav_nav">
+                    @include('superadmin.layouts.partials.sidebar');
+                </div>
+
+
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid px-3">
+                            @yield('content')
+                        </div>
+                    </main>
+                    
+                    @include('superadmin.layouts.partials.footer');
+                    
+                </div>
             </div>
-
-
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        @yield('content')
-                    </div>
-                </main>
-                
-                @include('superadmin.layouts.partials.footer');
-                
-            </div>
-        </div>
 
 
         @stack('js')

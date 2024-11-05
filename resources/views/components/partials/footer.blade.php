@@ -1,5 +1,5 @@
  <!-- Footer -->
-<footer class="text-center text-lg-start text-muted" style="background-color: #04030F;">
+<footer class="d-none d-lg-inline text-center text-lg-start text-muted" style="background-color: #04030F;">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->

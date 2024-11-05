@@ -75,7 +75,7 @@
                   <!-- Profile with modal trigger -->
                   <a href="#" class="text-white text-decoration-none fs-5 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#profileModal">
                       <span class="mx-3">{{ Auth::user()->name }}</span>
-                      <img src="{{ asset('img/aboutus/ourStory/pics/mA4.png') }}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
+                      <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
                   </a>
                   @else
                   <a href="{{ route('login') }}" class="text-white text-decoration-none me-3" style="font-size: calc(1rem + 0.3vw);">Log in</a>
@@ -145,7 +145,7 @@
       <div class="modal-content text-center border-danger p-3 bg-black">
         <div class="modal-body py-4" id="modalBodyContent">
           <!-- Profile Picture -->
-          <img src="{{asset('img/aboutus/ourStory/pics/mA4.png')}}" alt="Profile" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+          <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
   
           <!-- Profile Name -->
           <div class="d-flex justify-content-center align-items-center">

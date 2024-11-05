@@ -7,6 +7,7 @@ use App\Http\Controllers\PagadianTabledataController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SuperAdmin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SuperAdmin\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\PagadianTabledata;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,10 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
         //table datas
         Route::resource('ozamiztabledatas',  OzamizTabledataController::class);
         Route::resource('pagadiantabledatas',  PagadianTabledataController::class);
+
+        //user accounts
+        Route::resource('useraccounts',  UserController::class);
+       
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

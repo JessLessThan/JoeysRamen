@@ -10975,6 +10975,7 @@ body {
 .sb-sidenav {
   display: flex;
   flex-direction: column;
+  
   height: 100%;
   flex-wrap: nowrap;
 }

@@ -9,7 +9,7 @@ class PagadianTabledata extends Model
 {
     use HasFactory;
 
-    protected $table = 'OzamizTabledata';
+    protected $table = 'pagadian_tabledatas';
 
     protected $fillable = [
         'table',

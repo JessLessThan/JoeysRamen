@@ -1,6 +1,6 @@
 @extends('superadmin.layouts.superadmin')
 
-@section('title', 'Product Page')
+@section('title', 'Products - Ozamiz')
 
 @section('content')
 <div class="container-fluid">
@@ -17,6 +17,7 @@
             <form method="GET" action="{{ url('super-admin/products') }}">
                 <select name="category" class="form-select me-2 mb-3" style="max-width: 200px;" onchange="this.form.submit()">
                     <option disabled selected>Filter by Category</option>
+                    <option value="">View All</option>
                     <option value="Ramen" {{ request('category') == 'Ramen' ? 'selected' : '' }}>Ramen</option>
                     <option value="Sushi" {{ request('category') == 'Sushi' ? 'selected' : '' }}>Sushi</option>
                     <option value="Sashimi" {{ request('category') == 'Sashimi' ? 'selected' : '' }}>Sashimi</option>
@@ -24,6 +25,7 @@
                     <option value="Drinks" {{ request('category') == 'Drinks' ? 'selected' : '' }}>Drinks</option>
                 </select>
             </form>
+            
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">

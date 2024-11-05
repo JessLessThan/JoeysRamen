@@ -12,7 +12,8 @@ class PagadianTabledataController extends Controller
      */
     public function index()
     {
-        return view('superadmin.tabledatas.pagadian.tableDatas');
+        $tables = PagadianTabledata::all();
+        return view('superadmin.tabledatas.pagadian.tableDatas', ['tables' => $tables]);
     }
 
     /**
@@ -42,9 +43,9 @@ class PagadianTabledataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PagadianTabledata $pagadianTabledata)
+    public function edit(PagadianTabledata $pagadiantabledata)
     {
-        //
+        return view('superadmin.tabledatas.pagadian.edit',  compact('pagadiantabledata'));
     }
 
     /**
