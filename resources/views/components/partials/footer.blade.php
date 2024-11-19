@@ -1,4 +1,11 @@
  <!-- Footer -->
+<footer class=" d-lg-none d-flex mt-2 align-items-end justify-content-center">
+    <div class="w-100 text-center">
+        <h5 class="text-white border-top w-100 border-white ">@JoeysRamenHouse</h5>
+    </div>
+    
+</footer>
+
 <footer class="d-none d-lg-inline text-center text-lg-start text-muted" style="background-color: #04030F;">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -9,10 +16,10 @@
       <!-- Right -->
       <div>
           <a href="https://www.facebook.com/p/JoeyS-RAMEN-HOUSE-100063778308490/" target="_blank" class="text-reset me-4">
-              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-facebook-f text-white"></i>
           </a>
           <a href="https://www.instagram.com/explore/locations/281627251691151/joeys-ramen-house-pagadian-branch/" target="_blank" class="text-reset me-4">
-              <i class="fab fa-instagram"></i>
+              <i class="fab fa-instagram text-white"></i>
           </a>
           <!-- Add other social media icons as needed -->
       </div>
@@ -31,10 +38,10 @@
               <!-- Products -->
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                   <h6 class="text-uppercase fw-bold mb-4 text-white">Products</h6>
+                  <p><a href="#!" class="text-reset">Sushi</a></p>
                   <p><a href="#!" class="text-reset">Ramen</a></p>
-                  <p><a href="#!" class="text-reset">React</a></p>
-                  <p><a href="#!" class="text-reset">Vue</a></p>
-                  <p><a href="#!" class="text-reset">Laravel</a></p>
+                  <p><a href="#!" class="text-reset">Sasshimi</a></p>
+                  <p><a href="#!" class="text-reset">Etc.</a></p>
               </div>
 
               <!-- Links -->

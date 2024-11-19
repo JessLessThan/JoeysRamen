@@ -6,7 +6,7 @@
 
 <h5 class="text-white bg-danger rounded-1 py-2 py-lg px-3 fs-1 text-center"><strong>Pagadian Branch</strong></h5>
 <div class="container-fluid pb-4 rounded-1 px-0" style="background-color:white;">
-    <h5 class="text-white bg-success py-3 px-3 fs-1 text-center mt-0 mt-lg-0"><strong>Drinks</strong></h5>
+    <h5 class="text-white bg-success py-3 px-3 fs-1 text-center mt-0 mt-lg-0"><strong>Sushi</strong></h5>
     <div class="row d-flex justify-content-start align-items-lg-start row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 pt-2 g-3 mx-0">
         @foreach ($sushiProducts  as $product)
             <div class="col">
@@ -21,9 +21,15 @@
                             <p class="fs-5 text-dark text-start"><strong  style="font-size: calc(0.9rem + 0.8vw);">₱{{ $product->price }}</strong></p>
                         </div>
                         <div>
-                            <a href="{{ route('menu.pagadian.ramen.product', ['name' => $product->name]) }}" class="btn btn-success text-white w-100">
-                                <strong>Order</strong>
-                            </a>
+                            @if(Auth::check())
+                                <a href="{{ route('menu.ramen.product', ['name' => $product->name]) }}" class="btn btn-success text-white w-100">
+                                    <strong>Order</strong>
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success text-white w-100">
+                                    <strong>Order</strong>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

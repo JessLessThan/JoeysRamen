@@ -2,7 +2,29 @@
 
 @section('menusidebar')
 
+<style>
+    .list-group-item a div {
+        padding: 10px;
+        width: 100%;
+        border-radius: 4px;
+    }
 
+    /* Apply gray background on hover */
+    .list-group-item a div:hover {
+        background-color: rgba(158, 157, 157, 0.322);
+    }
+
+    /* Set text and icon to white on hover */
+    .list-group-item a div:hover p,
+    .list-group-item a div:hover i {
+        color: white;
+    }
+
+    /* Optional: Reset list item padding to remove extra space */
+    .list-group-item {
+        padding: 0;
+    }
+</style>
 <div class="d-flex justify-content-between align-items-center d-lg-none py-2" style="background-color: #ECFFFD;">
     <div class="col-lg-12  position-relative">
         <form action="" method="GET">

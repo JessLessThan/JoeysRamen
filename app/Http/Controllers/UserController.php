@@ -9,12 +9,29 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     // Display a listing of the users.
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10); // Adjust the number as needed
-        return view('superadmin.useraccounts.mainuseraccounts', ['users' => $users]);
-
+        $location = $request->input('location');
+        $search = $request->input('search');
+    
+        // Start with a query
+        $query = User::query();
+    
+        // Filter by location if selected
+        if ($location) {
+            $query->where('location', $location);
+        }
+    
+        // Filter by search term if entered
+        if ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        }
+    
+        $users = $query->get();
+    
+        return view('superadmin.useraccounts.mainuseraccounts', compact('users', 'location', 'search'));
     }
+    
 
     // Show the form for creating a new user.
     public function create()

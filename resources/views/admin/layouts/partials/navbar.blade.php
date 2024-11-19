@@ -1,15 +1,26 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark"  style="background-color: black;">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{url('admin/dashboard')}}">Joeys Ramen</a>
+    <a class="navbar-brand ps-3" href="{{url('admin/ozamiz/dashboard')}}"> <img src="{{asset('img/logo/logo2.png')}}" class="img-fluid  w-100" alt="" style="margin-bottom: -47px; margin-left: -12px;"></a>
     <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    
     <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+    <div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="col-lg-12 position-relative">
+            <form action="" method="GET">
+                <div class="position-relative">
+                    <select id="locationSelect" class="form-control pe-5 me-2 text-dark select-black" onchange="location = this.value;">
+                        <option value="" disabled>Select Location</option>
+                        <option value="{{ url('admin/ozamiz/dashboard') }}" {{ request()->is('admin/ozamiz/dashboard') ? 'selected' : '' }}>Ozamiz</option>
+                        <option value="{{ url('admin/pagadian/dashboard') }}" {{ request()->is('admin/pagadian/dashboard', 'admin/pagadian/orders', 'admin/pagadian/tablereservation', 'admin/pagadian/feedback', 'admin/pagadian/notification') ? 'selected' : '' }}>Pagadian</option>
+                    </select>
+                    
+                    <!-- Icon positioned inside the select -->
+                    <i class="fa-solid fa-chevron-down position-absolute top-50 translate-middle-y" style="right: 15px; pointer-events: none;"></i>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+    
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">

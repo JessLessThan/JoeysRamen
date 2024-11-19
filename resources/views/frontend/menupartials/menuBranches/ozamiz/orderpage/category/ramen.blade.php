@@ -19,9 +19,15 @@
                             <p class="fs-5 text-dark text-start"><strong style="font-size: calc(0.9rem + 0.8vw);">₱{{ $product->price }}</strong></p>
                         </div>
                         <div>
-                            <a href="{{ route('menu.ramen.product', ['name' => $product->name]) }}" class="btn btn-success text-white w-100">
-                                <strong>Order</strong>
-                            </a>
+                            @if(Auth::check())
+                                <a href="{{ route('menu.ramen.product', ['name' => $product->name]) }}" class="btn btn-success text-white w-100">
+                                    <strong>Order</strong>
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success text-white w-100">
+                                    <strong>Order</strong>
+                                </a>
+                            @endif
                         </div>
                     </div>                    
                 </div>
@@ -29,4 +35,5 @@
         @endforeach
     </div>
 </div>
-@endsection
+@endsection  
+

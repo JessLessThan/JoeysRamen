@@ -88,7 +88,7 @@
                 User Accounts
             </a>
 
-            <a class="nav-link mt-lg-3 fs-5 text-white" href="{{ url('super-admin/products') }}">
+            <a class="nav-link mt-lg-3 fs-5 text-white  {{ request()->is('super-admin/Feedbacks') ? 'active' : '' }}"  href="{{url('super-admin/Feedbacks')}}">
                 <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-comment text-white"></i></div>
                 Feedback
             </a>

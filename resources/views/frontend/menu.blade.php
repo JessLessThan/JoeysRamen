@@ -6,7 +6,7 @@
     </x-slot> 
     <div class="text-center container-fluid">
         <div class="row">
-            <div class="col-lg-12 d-none d-lg-inline" style="background-color: #04030F">
+            <div class="col-lg-12 d-none d-lg-inline" style="background-color: black">
                 <div class="row">
                     <div class="col">
                         <div class="d-flex flex-wrap align-items-center justify-content-center gap-5 mt-4">

@@ -6,16 +6,19 @@
                 <div class="col-lg-3"></div>
                 
                 <!-- Location select dropdown -->
+                @if(request()->is('tablereservations/ozamiz') || request()->is('tablereservations/pagadian'))
                 <div class="col-lg-3 position-relative mt-4">
                     <form action="" method="GET">
                         <select id="locationSelect" class="form-control text-dark select-black" onchange="location = this.value;">
-                            <option value="{{ url('reservation/ozamiz') }}" {{ request()->is('reservation/ozamiz', '/') ? 'selected' : '' }}>Ozamiz</option>
-                            <option value="{{ url('reservation/pagadian') }}" {{ request()->is('reservation/pagadian') ? 'selected' : '' }}>Pagadian</option>
+                            <option value="{{ url('tablereservations/ozamiz') }}" {{ request()->is('tablereservations/ozamiz', '/') ? 'selected' : '' }}>Ozamiz</option>
+                            <option value="{{ url('tablereservations/pagadian') }}" {{ request()->is('tablereservations/pagadian') ? 'selected' : '' }}>Pagadian</option>
                         </select>
                         <!-- Chevron icon inside the select input -->
                         <i class="fa-solid fa-chevron-down position-absolute top-50 translate-middle-y" style="right: 20px;"></i>
                     </form>
-                </div>                
+                </div>
+            @endif
+                         
             </div>
     
             <!-- Table section with padding -->

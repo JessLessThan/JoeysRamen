@@ -62,21 +62,34 @@
                   
                       <!-- Profile Picture -->
                       <div class="mb-3">
-                          <label for="profile_picture" class="form-label">{{ __('Profile Picture') }}</label>
-                          <input type="file" class="form-control" id="profile_picture" name="profile_picture">
-                          @if ($errors->get('profile_picture'))
-                              <div class="text-danger mt-2">{{ $errors->first('profile_picture') }}</div>
-                          @endif
-                      </div>
+                        <label for="profile_picture" class="form-label">{{ __('Profile Picture') }}</label>
+                        <input type="file" class="form-control" id="profile_picture" name="profile_picture" accept="image/*" onchange="previewImage(event)">
+                        
+                        @if ($errors->get('profile_picture'))
+                            <div class="text-danger mt-2">{{ $errors->first('profile_picture') }}</div>
+                        @endif
+                        
+                        <!-- Preview div for the uploaded image -->
+                        <div id="image_preview" class="mt-3" style="display: none;">
+                            <img id="preview" src="#" alt="Profile Image Preview" class="img-thumbnail" style="max-width: 200px;">
+                        </div>
+                    </div>
                   
                       <!-- Location -->
-                      <div class="mb-3">
-                          <label for="location" class="form-label">{{ __('Location') }}</label>
-                          <input type="text" class="form-control" id="location" name="location" value="{{ old('location') }}" required autocomplete="location">
-                          @if ($errors->get('location'))
-                              <div class="text-danger mt-2">{{ $errors->first('location') }}</div>
-                          @endif
-                      </div>
+                      <div class="mb-3 position-relative">
+                        <label for="location" class="form-label">{{ __('Branch Nearby') }}</label>
+                        <select class="form-control" id="location" name="location" required>
+                            <option value="" disabled selected>Select a location</option>
+                            <option value="ozamiz" {{ old('location') == 'ozamiz' ? 'selected' : '' }}>Ozamiz</option>
+                            <option value="pagadian" {{ old('location') == 'pagadian' ? 'selected' : '' }}>Pagadian</option>
+                        </select>
+                        <i class="fas fa-chevron-down position-absolute" style="right: 10px; top: 73%; transform: translateY(-50%); pointer-events: none;"></i>
+                        @if ($errors->get('location'))
+                            <div class="text-danger mt-2">{{ $errors->first('location') }}</div>
+                        @endif
+                    </div>
+                    
+                    
                   
                       <!-- Password -->
                       <div class="mb-3">
@@ -123,7 +136,28 @@
 
 
 
+      
 
-
+      <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('preview');
+            const imagePreviewDiv = document.getElementById('image_preview');
+        
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    imagePreviewDiv.style.display = 'block'; // Show the preview div
+                }
+        
+                reader.readAsDataURL(file);
+            } else {
+                // Hide the preview if no file is selected
+                imagePreviewDiv.style.display = 'none';
+            }
+        }
+        </script>
     
 </x-guest-layout>

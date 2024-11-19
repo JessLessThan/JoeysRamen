@@ -29,22 +29,28 @@ class LocationController extends Controller
         ]);
     }
 
-    public function showRamenProduct($name) {
-        // Find the product by name
-        $product = Products::where('name', $name)->firstOrFail();
-        
-        // Get drinks associated with the product
-        $drinkProducts = Products::where('description', 'Drinks')->get();
-        
+    public function showRamenProduct($id) {
+        // Try to find the product by name in Products model first
+        $product = Products::where('name', $id)->first();
+    
+        // If the product is not found in Products, try to find it in pagadianProducts
+        if (!$product) {
+            $product = pagadianProducts::where('name', $id)->firstOrFail();
+        }
+    
+        // Get drinks associated with the product from both Products and pagadianProducts
+        $drinksFromProducts = Products::where('description', 'Drinks')->get();
+        $drinksFromPagadian = pagadianProducts::where('category', 'Drinks')->get();
+    
+        // Merge both drink collections into one
+        $drinkProducts = $drinksFromProducts->merge($drinksFromPagadian);
+    
         return view('frontend.menupartials.menuBranches.ozamiz.orderpage.category.confirmorder.productinfo', [
             'product' => $product,
             'drinkProducts' => $drinkProducts
         ]);
-
-        
-        
     }
-
+    
     public function showPagadianRamenProduct($name) {
         // Find the product by name
         $pagadianproduct = pagadianProducts::where('name', $name)->firstOrFail();

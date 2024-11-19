@@ -1,14 +1,12 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark " style="background-color: black;">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{url('superadmin/dashboard')}}"> <img src="{{asset('img/logo/logo2.png')}}" class="img-fluid  w-100" alt="" style="margin-bottom: -47px; margin-left: -12px;"></a>
+    <a class="navbar-brand ps-3" href="{{url('super-admin/dashboard')}}"> <img src="{{asset('img/logo/logo2.png')}}" class="img-fluid  w-100" alt="" style="margin-bottom: -47px; margin-left: -12px;"></a>
     <!-- Sidebar Toggle-->
-   
+    
+
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        {{--<div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div>--}}
+       
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav  ms-auto ms-md-0 me-3 me-lg-4">

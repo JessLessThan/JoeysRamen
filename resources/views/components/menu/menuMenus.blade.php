@@ -5,7 +5,7 @@
   }
 </style>
 
-<div class="content" style="background-color: #04030F"> <!-- content container -->
+<div class="content" style="background-color: black"> <!-- content container -->
   <div class="row"> <!-- content -->
     <div class="col-lg-2"> <!-- search and menu -->
       <div class="row">

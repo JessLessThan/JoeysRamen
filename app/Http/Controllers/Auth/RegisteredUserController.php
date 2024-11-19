@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]{10,15}$/'],
+            'phone' => 'required|string|max:15|regex:/^[0-9]{10,15}$/|unique:users,phone',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class, 'regex:/^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/'],
             'profile_picture' => ['mimes:png,jpeg,jpg|max:2048'], // Validate image upload
             'location' => ['required', 'string', 'max:255'],

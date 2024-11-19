@@ -1,79 +1,58 @@
+@extends('admin.layouts.admin')
+
+@section('sidebar')
+<style>
+    /* Outer active link style */
+    .nav-link.active {
+        background-color: rgba(235, 21, 21, 0.877) !important;
+    }
+    .nav-link:hover{
+        background-color: rgba(160, 160, 160, 0.404);
+    }
+    /* Inner active link style */
+    .nav-link.inner-active {
+        background-color: rgb(100, 100, 100) !important; /* Change to preferred color */
+    }
+</style>
+
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-    <div class="sb-sidenav-menu">
+    <div class="sb-sidenav-menu" style="background-color: black;">
         <div class="nav">
-            <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link" href="{{url('admin/dashboard')}}">
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+            <div class="sb-sidenav-menu-heading">
+               
+            </div>
+            
+            <a class="nav-link mt-lg-3 fs-5 text-start text-white  {{ request()->is('admin/ozamiz/dashboard') ? 'active' : '' }}" href="{{ url('admin/ozamiz/dashboard') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid text-white fa-gauge-simple"></i></div>
                 Dashboard
             </a>
 
-            <a class="nav-link" href="{{url('admin/orders')}}">
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Orders
+            <a class="nav-link mt-lg-3 fs-5 text-start text-white  {{ request()->is('admin/ozamiz/orders') ? 'active' : '' }}" href="{{ url('admin/ozamiz/orders') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid text-white  fa-first-order fa-brands"></i></div>
+                Orders 
             </a>
 
-            <a class="nav-link" href="{{url('admin/reservations')}}">
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Reservation
+
+            <a class="nav-link mt-lg-3 fs-5 text-start text-white  {{ request()->is('admin/ozamiz/reservations') ? 'active' : '' }}" href="{{ url('admin/ozamiz/reservations') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid text-white fa-table-list"></i></div>
+                table Reservation
             </a>
 
+        
            
-            <div class="sb-sidenav-menu-heading">Interface</div>
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                Layouts
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            <a class="nav-link mt-lg-3 fs-5 text-white {{ request()->is('admin/ozamiz/feedback') ? 'active' : '' }}" href="{{ url('admin/ozamiz/feedback') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-comment text-white"></i></div>
+                Feedback
             </a>
-            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                </nav>
-            </div>
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Pages
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            <hr class="text-white">
+            <a class="nav-link mt-lg-3 fs-5 text-white {{ request()->is('admin/ozamiz/notification') ? 'active' : '' }}" href="{{ url('admin/ozamiz/notification') }}">
+                <div class="sb-nav-link-icon fs-5"><i class="fa-solid fa-bell text-white"></i></div>
+                Notification
             </a>
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                        Authentication
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="login.html">Login</a>
-                            <a class="nav-link" href="register.html">Register</a>
-                            <a class="nav-link" href="password.html">Forgot Password</a>
-                        </nav>
-                    </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                        Error
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="401.html">401 Page</a>
-                            <a class="nav-link" href="404.html">404 Page</a>
-                            <a class="nav-link" href="500.html">500 Page</a>
-                        </nav>
-                    </div>
-                </nav>
-            </div>
-            <div class="sb-sidenav-menu-heading">Addons</div>
-            <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                Charts
-            </a>
-            <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
-            </a>--}}
+
         </div>
     </div>
-    <div class="sb-sidenav-footer">
-        <div class="small">Logged in as:</div>
-        Start Bootstrap
-    </div>
+   
 </nav>
+@endsection
+
